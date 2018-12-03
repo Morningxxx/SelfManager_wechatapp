@@ -23,6 +23,16 @@ Page({
         console.log(res)
         if (res.code) {
           console.log(configs.baseUrl)
+          wx.request({
+            url: configs.baseUrl,
+            method: "POST",
+            data: {
+              code: res.code
+            },
+            success: function(resp) {
+              console.log(resp)
+            }
+          })
         } else {
           console.log(res.errMsg)
         }
