@@ -1,0 +1,28 @@
+#homeTab {
+  background: rgba(233,233,233,1);
+  position: fixed;
+  max-height: 50px;
+  height: 50px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  display: inline-flex;
+}
+
+.homeTabItem {
+  margin: auto;
+  max-height: 50px;
+  height: 100%;
+  width: 23%;
+  top: 0;
+  bottom: 0;
+}
+
+.tabItemText {
+  position: absolute;
+  bottom: 0;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; 
+}

@@ -1,0 +1,35 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/record/record",
+    "pages/wish/wish"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "自律积分",
+    "navigationBarTextStyle":"black",
+    "navigationStyle": "default"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/record/record",
+      "text": "记录",
+      "iconPath": "",
+      "selectedIconPath": ""
+    },{
+      "pagePath": "pages/wish/wish",
+      "text": "心愿",
+      "iconPath": "",
+      "selectedIconPath": ""
+    },{
+      "pagePath": "pages/index/index",
+      "text": "我的",
+      "iconPath": "",
+      "selectedIconPath": ""
+    }
+    ],
+    "selectedColor": "#2a207f"
+  }
+}
