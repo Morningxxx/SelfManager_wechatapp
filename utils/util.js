@@ -1,3 +1,5 @@
+const requests = require("../requests/requests.js")
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -14,6 +16,24 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const clogin = function(userInfo) {
+  requests.sessionLogin(
+    wx.getStorageSync('sessionKey'), 
+    function(res) {}, function() {
+      wx.login({
+        success(res) {
+          console.log(res)
+          if (res.code) {
+            requests.clogin(res.code, userInfo)
+          } else {
+            console.log(res.errMsg)
+          }
+        }
+      })
+    })  
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  clogin: clogin
 }
