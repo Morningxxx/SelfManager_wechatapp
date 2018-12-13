@@ -1,0 +1,6 @@
+<view>
+  <view>
+      <label></label>
+      <picker></picker>
+  </view>
+</view>

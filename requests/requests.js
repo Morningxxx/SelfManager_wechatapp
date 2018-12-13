@@ -60,7 +60,30 @@ const sessionLogin = function(sessionKey, suc, error) {
   })
 }
 
+const getBalance = function(suc, error) {
+  wx.request({
+    url: configs.baseUrl + '/api/my/balances',
+    header: { 'Authorization': wx.getStorageSync('sessionKey')},
+    method: 'GET',
+    success: function(res) {
+      res = res.data
+      console.log(res)
+      if(!res.success) {
+        error(res)
+      } else {
+        suc(res)
+      }
+    },
+    fail: function(res) {
+      res = res.data
+      console.log(res)
+      error(res)
+    }
+  })
+}
+
 module.exports = {
   clogin: clogin,
-  sessionLogin: sessionLogin
+  sessionLogin: sessionLogin,
+  getBalance: getBalance,
 }

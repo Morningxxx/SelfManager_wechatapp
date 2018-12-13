@@ -7,10 +7,17 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view>
-    <button type='default' bindtap="buttonTap">{{buttonName}}</button>
-  </view>
+  
   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+    <text class="user-motto">当前积分余额： {{balance}}</text>
+  </view>
+  <view>
+    <button id="newrecord-button" type='default' bindtap="createRecord">+ 新的记录</button>
+  </view>
+  <view class="userability">
+    <view class="userability-line">
+      <button class="userability-item" bindtap="createWish">新的心愿</button>
+      <button class="userability-item" bindtap="createGoal">新的目标</button>
+    </view>
   </view>
 </view>

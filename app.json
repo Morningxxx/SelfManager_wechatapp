@@ -3,7 +3,11 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/record/record",
-    "pages/wish/wish"
+    "pages/wish/wish",
+    "pages/goal/goal",
+    "pages/record/crecord/crecord",
+    "pages/wish/cwish/cwish",
+    "pages/goal/cgoal/cgoal"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -16,20 +20,25 @@
     "list": [{
       "pagePath": "pages/record/record",
       "text": "记录",
-      "iconPath": "",
-      "selectedIconPath": ""
+      "iconPath": "assets/record_tb.png",
+      "selectedIconPath": "assets/record_sel_tb.png"
+    },{
+      "pagePath": "pages/goal/goal",
+      "text": "目标",
+      "iconPath": "assets/goal_tb.png",
+      "selectedIconPath": "assets/goal_sel_tb.png"
     },{
       "pagePath": "pages/wish/wish",
       "text": "心愿",
-      "iconPath": "",
-      "selectedIconPath": ""
+      "iconPath": "assets/wish_tb.png",
+      "selectedIconPath": "assets/wish_sel_tb.png"
     },{
       "pagePath": "pages/index/index",
       "text": "我的",
-      "iconPath": "",
-      "selectedIconPath": ""
+      "iconPath": "assets/mine_tb.png",
+      "selectedIconPath": "assets/mine_sel_tb.png"
     }
     ],
-    "selectedColor": "#2a207f"
+    "selectedColor": "#13227a"
   }
 }

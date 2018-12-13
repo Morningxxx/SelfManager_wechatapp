@@ -2,6 +2,10 @@
 //获取应用实例
 const app = getApp()
 const utils = require("../../utils/util.js")
+const requests = require("../../requests/requests.js")
+const records = require("../record/records.js")
+const goals = require("../goal/goals.js")
+const wishes = require("../wish/wishes.js")
 
 Page({
   data: {
@@ -9,16 +13,23 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    buttonName: 'button'
+    buttonName: '刷新余额',
+    balance: 0
   },
   //事件处理函数
   bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    // wx.navigateTo({
+    //   url: '../logs/logs'
+    // })
   },
-  buttonTap: function() {
-    utils.clogin(this.data.userInfo)
+  createRecord: function() {
+    records.createRecord()
+  },
+  createWish: function () {
+    wishes.createWish()
+  },
+  createGoal: function () {
+    goals.createGoal()
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -35,7 +46,6 @@ Page({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
-        console.log(res.userInfo)
         utils.clogin(this.data.userInfo)
       }
     } else {
@@ -51,7 +61,7 @@ Page({
         }
       })
     }
-    console.log(app.globalData.userInfo)
+    this.getBalance()
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -59,6 +69,16 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  getBalance: function() {
+    requests.getBalance((res) => {
+      var data = res.data
+      this.setData({
+        balance: data.balance
+      })
+    }, function(res) {
+      setTimeout(function(){this.getBalance()}, 1000)
     })
   }
 })

@@ -17,5 +17,45 @@
 }
 
 .usermotto {
-  margin-top: 200px;
+  margin-top: 20px;
+}
+
+#newrecord-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+  height: 100px;
+  width: 240px;
+  border: 0;
+  color: white;
+  font-size: 20px;
+  background-color: rgb(99, 235, 99);
+
+}
+
+.userability {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.userability-line {
+  display: flex;
+  justify-content: center;
+  width: 96%;
+}
+
+.userability-item {
+  background-color: darkblue;
+  margin: auto;
+  height: 80px;
+  width: 48%;
+  color: white;
+  font-size: 20x;
+  line-height: 120%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
