@@ -1,3 +1,11 @@
 <view>
-
+  <scroll-view class='listview' scroll-y='true'>
+    <view class='listviewcell' wx:for='{{goals}}'>
+      <view class='celltitle cellitem'>{{item.title}}</view>
+      <view class='cellstatus cellitem'>{{item.statusName}}</view>
+      <view class='cellprice cellitem'>{{item.rewards}}积分</view>
+      <view class='celltype cellitem'>{{item.typeName}}</view>
+      <button class='cellaction cellitem' id='{{item.index}}' wx:if='{{item.status == 100}}' bindtap='finishGoal'>完成</button>
+    </view>
+  </scroll-view>
 </view>

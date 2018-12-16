@@ -8,3 +8,106 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+.container-creator {
+  padding-left: 3pt;
+  padding-right: 3pt;
+}
+
+page {
+  background-color: rgb(243, 243, 243)
+}
+
+.formsecsion {
+  margin-top:10pt;
+  margin-bottom: 10pt;
+}
+
+.formcontent {
+  display: flex;
+  height: 30pt;
+  margin: auto;
+  margin-top: 5pt;
+  padding-left: 5pt;
+  width: 95%;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(220,220,200);
+  border-radius: 4pt;
+  align-items: center;
+}
+
+.formcontent[data-attr=false] {
+  color: rgb(128, 128, 128);
+}
+
+.formcontent[data-attr=true] {
+  color: black;
+}
+
+.formsubmit {
+  margin-top: 30pt;
+  width: 94%;
+  border-radius: 5pt;
+  background-color: darkblue;
+  color: white;
+}
+
+.listview {
+}
+
+.listviewcell {
+  height: 70pt;
+  padding: 2pt;
+  padding-right: 5pt;
+  margin-top: 1pt;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(200, 200, 200);
+  border-radius: 3pt;
+}
+
+.cellitem{
+  position: absolute;
+}
+
+.celltitle {
+  margin-top: 4pt;
+  left: 7pt;
+  width: 80%
+}
+
+.cellprice {
+  right:5pt;
+  height: 20pt;
+  margin-top: 26pt;
+  text-align: right;
+}
+
+.cellaction {
+  right:5pt;
+  height: 20pt;
+  margin-top: 48pt;
+  display: flex;
+  padding-left: 7px;
+  padding-right: 7px;
+  justify-items: center;
+  background-color: rgb(19, 34, 122);
+  color: white;
+  font-size: 14;
+  line-height: 20pt;
+}
+
+.cellstatus {
+  right:5pt;
+  height: 20pt;
+  margin-top: 4pt;
+  text-align: right;
+}
+
+.celltype {
+  left: 7pt;
+  margin-top: 40pt;
+}

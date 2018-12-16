@@ -1,1 +1,27 @@
-<view>{{name}}</view>
+<view class='container-creator'>
+  <view class='formsecsion'>
+    <view class='formtitle'>目标名称</view>
+    <input class='formcontent' bindconfirm='titleDone' bindblur='titleDone' placeholder='请输入目标名称'></input>
+  </view>
+  <view class='formsecsion'>
+    <view class="formtitle">目标类型</view>
+    <picker range="{{items}}" range-key='title' bindchange='selected'>
+      <view class='formcontent' data-attr='{{selectedStatus}}'>{{selected}}</view>
+    </picker>
+  </view>
+  <view class='formsecsion'>
+    <view class='formtitle'>达成奖励</view>
+    <input class='formcontent' bindconfirm='rewardsDone' bindblur='rewardsDone' placeholder='请输入奖励额'></input>
+  </view>
+  <view class='formsecsion'>
+    <view class='formtitle'>备注</view>
+    <input class='formcontent' bindconfirm='noteDone' bindblur='noteDone' placeholder='请输入备注'></input>
+  </view>
+  <view class='formsecsion'>
+    <checkbox-group bindchange='autoDoneChecked'>
+      <checkbox class='formcontent' value='autoDone' disabled='{{!canAutoDone}}' checked='{{autoDone}}'>是否需要定时自动完成</checkbox>
+    </checkbox-group>
+  </view>
+
+  <button class='formsubmit' bindtap='createGoal'>新建目标</button>
+</view>

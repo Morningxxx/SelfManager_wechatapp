@@ -61,6 +61,8 @@ Page({
         }
       })
     }
+  },
+  onShow: function() {
     this.getBalance()
   },
   getUserInfo: function(e) {
@@ -77,8 +79,10 @@ Page({
       this.setData({
         balance: data.balance
       })
-    }, function(res) {
-      setTimeout(function(){this.getBalance()}, 1000)
+    }, (res)=>{
+      console.log('retry get balance...')
+      utils.clogin()
+      setTimeout(()=>{this.getBalance()}, 1000)
     })
   }
 })

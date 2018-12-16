@@ -1,1 +1,21 @@
-<view>{{name}}</view>
+<view class='container-creator'>
+  <view class='formsecsion'>
+    <view class='formtitle'>心愿名称</view>
+    <input class='formcontent' bindconfirm='titleDone' bindblur='titleDone' placeholder='请输入心愿名称'></input>
+  </view>
+  <view class='formsecsion'>
+    <view class="formtitle">心愿类型</view>
+    <picker range="{{items}}" range-key='title' bindchange='selected'>
+      <view class='formcontent' data-attr='{{selectedStatus}}'>{{selected}}</view>
+    </picker>
+  </view>
+  <view class='formsecsion'>
+    <view class='formtitle'>标价</view>
+    <input class='formcontent' bindconfirm='costsDone' bindblur='costsDone' placeholder='请输入心愿的标价'></input>
+  </view>
+  <view class='formsecsion'>
+    <view class='formtitle'>备注</view>
+    <input class='formcontent' bindconfirm='noteDone' bindblur='noteDone' placeholder='请输入备注'></input>
+  </view>
+  <button class='formsubmit' bindtap='createWish'>新建心愿</button>
+</view>

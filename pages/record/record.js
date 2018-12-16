@@ -5,7 +5,6 @@ const records = require("./records.js")
 
 Page({
   onLoad: function() { 
-    records.createRecord()
   }
 })
 

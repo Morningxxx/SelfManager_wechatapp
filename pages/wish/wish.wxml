@@ -1,3 +1,10 @@
 <view>
-
+  <view class='listview'>
+    <view class='listviewcell' wx:for='{{wishes}}'>
+      <view class='celltitle'>{{item.title}}</view>
+      <view class='cellstatus'>{{item.statusName}}</view>
+      <view class='cellprice'>{{item.costs}}</view>
+      <button id='{{item.index}}' wx:if='{{item.costs > 200}}' bindtap='buyWish'>兑换</button>
+    </view>
+  </view>
 </view>
