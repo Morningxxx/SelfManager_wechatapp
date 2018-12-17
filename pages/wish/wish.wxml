@@ -1,10 +1,11 @@
 <view>
   <view class='listview'>
     <view class='listviewcell' wx:for='{{wishes}}'>
-      <view class='celltitle'>{{item.title}}</view>
-      <view class='cellstatus'>{{item.statusName}}</view>
-      <view class='cellprice'>{{item.costs}}</view>
-      <button id='{{item.index}}' wx:if='{{item.costs > 200}}' bindtap='buyWish'>兑换</button>
+      <view class='celltitle cellitem cellleft'>{{item.title}}</view>
+      <view class='cellstatus cellitem cellright'>{{item.statusName}}</view>
+      <view class='cellprice cellitem cellright'>价值{{item.costs}}积分</view>
+      <view class='celltype cellitem cellleft'>{{item.typeName}}</view>
+      <button class='cellaction cellitem cellright' id='{{item.index}}' data-attr='{{item.status == 100 ? "unfinished":"finished"}}' bindtap='buyWish'>{{item.status == 100 ? '兑换':'已兑换'}}</button>
     </view>
   </view>
 </view>

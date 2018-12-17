@@ -59,55 +59,72 @@ page {
 
 .listviewcell {
   height: 70pt;
-  padding: 2pt;
-  padding-right: 5pt;
-  margin-top: 1pt;
   background-color: white;
   border-style: solid;
   border-width: 1px;
+  border-left: 0;
+  border-right: 0;
+  border-top: 1;
+  border-bottom: 0;
   border-color: rgb(200, 200, 200);
-  border-radius: 3pt;
 }
 
 .cellitem{
   position: absolute;
 }
 
+.cellleft{
+  left: 10pt;
+}
+
+.cellright{
+  right: 10pt;
+}
+
 .celltitle {
-  margin-top: 4pt;
-  left: 7pt;
+  margin-top: 10pt;
   width: 80%
 }
 
 .cellprice {
-  right:5pt;
   height: 20pt;
   margin-top: 26pt;
   text-align: right;
+  color: rgb(128, 128, 128);
+  font-size: 12pt;
 }
 
 .cellaction {
-  right:5pt;
   height: 20pt;
-  margin-top: 48pt;
+  margin-top: 46pt;
   display: flex;
   padding-left: 7px;
   padding-right: 7px;
   justify-items: center;
-  background-color: rgb(19, 34, 122);
-  color: white;
   font-size: 14;
   line-height: 20pt;
 }
 
+.cellaction[data-attr='unfinished'] {
+  background-color: rgb(19, 34, 122);
+  color: white;
+}
+
+.cellaction[data-attr='finished'] {
+  background-color: rgb(240, 240, 240);
+  color: rgb(200,200,200);
+}
+
 .cellstatus {
-  right:5pt;
   height: 20pt;
   margin-top: 4pt;
   text-align: right;
+  color: rgb(128, 128, 128);
+  font-size: 12pt;
 }
 
 .celltype {
-  left: 7pt;
   margin-top: 40pt;
+  color: rgb(128, 128, 128);
+  font-size: 12pt;
 }

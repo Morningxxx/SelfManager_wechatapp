@@ -6,7 +6,16 @@ const utils = require('../../utils/util.js')
 
 const wishStatusMapping = {
   100: "可兑换",
-  200: "已兑换"
+  900: "已兑换"
+}
+
+const wishTypeMapping = {
+  1: '一次性心愿',
+  2: '每日心愿',
+  3: '每周心愿',
+  4: '每月心愿',
+  5: '每年心愿',
+  6: '常驻心愿',
 }
 
 Page({
@@ -40,6 +49,7 @@ Page({
         var wish = wishes[i]
         wish.ctime = utils.formatTime(new Date(wish.ctime * 1000))
         wish.statusName = wishStatusMapping[wish.status]
+        wish.typeName = wishTypeMapping[wish.wtype]
         wish.index = i
       }
       this.setData({
