@@ -1,2 +1,10 @@
 <view>
+  <scroll-view class='listview' scroll-y='true'>
+    <view class='listviewcell' wx:for='{{records}}'>
+      <view class='celltitle cellitem cellleft'>{{item.stitle}}</view>
+      <view class='celltime cellitem cellright'>{{item.finishDate}}</view>
+      <view class='cellprice cellitem cellright' data-attr="{{item.rtype}}">{{item.rtype=="dec" ? '-':'+'}}{{item.amount}}积分</view>
+      <view class='celltype cellitem cellleft'>{{item.typeName}}</view>
+    </view>
+  </scroll-view>
 </view>

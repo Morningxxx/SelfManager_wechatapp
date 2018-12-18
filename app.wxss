@@ -128,3 +128,11 @@ page {
   color: rgb(128, 128, 128);
   font-size: 12pt;
 }
+
+.celltime {
+  height: 20pt;
+  margin-top: 40pt;
+  text-align: right;
+  color: rgb(128, 128, 128);
+  font-size: 12pt;
+}

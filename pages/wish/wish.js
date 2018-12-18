@@ -35,6 +35,20 @@ Page({
       success: (res) => {
         if(res.confirm) {
           console.log('confirmed')
+          requests.buyWish(wish.wid, (res)=>{
+            wx.showToast({
+              title: "兑换成功！",
+              duration: 700,
+            })
+          }, (res)=>{
+            if(res.err_code === -1007) {
+              wx.showToast({
+                title: "余额不足！",
+                icon: "loading",
+                duration: 1000,
+            })
+            }
+          })
         }
       }
     })

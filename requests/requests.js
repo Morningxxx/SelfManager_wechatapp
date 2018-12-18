@@ -242,6 +242,60 @@ const createWish = function (wish, suc, error) {
   })
 }
 
+const buyWish = function (wid, suc, error) {
+  wx.request({
+    url: configs.baseUrl + '/api/my/wishes/buy',
+    header: { 'Authorization': wx.getStorageSync('sessionKey') },
+    method: 'POST',
+    data: {
+      wid: wid,
+    },
+    success: function (res) {
+      res = res.data
+      if (res.success) {
+        if (suc) { suc(res) }
+      } else if (error) { error(res) }
+    },
+    fail: function (res) {
+      if (error) { error(res) }
+    },
+    complete: function (res) {
+      wx.hideLoading()
+    }
+  })
+
+}
+const getRecords = function (suc, error) {
+  wx.request({
+    url: configs.baseUrl + '/api/my/records',
+    header: { 'Authorization': wx.getStorageSync('sessionKey') },
+    method: 'GET',
+    success: function (res) {
+      console.log(res)
+      wx.hideLoading()
+      res = res.data
+      if (res.success) {
+        if (suc) { suc(res) }
+      } else {
+        wx.showToast({
+          title: '请求失败，错误信息为：' + res.err_msg,
+          duration: 1000
+        })
+        if (error) { error(res) }
+      }
+    },
+    fail: function (res) {
+      wx.hideLoading()
+      wx.showToast({
+        title: '服务器开小差，请重试',
+        duration: 1000
+      })
+      if (error) { error(res) }
+    },
+    complete: function (res) { },
+  })
+}
+
 module.exports = {
   clogin: clogin,
   sessionLogin: sessionLogin,
@@ -251,4 +305,6 @@ module.exports = {
   createGoal: createGoal,
   getWishes: getWishes,
   createWish: createWish,
+  buyWish: buyWish,
+  getRecords: getRecords,
 }

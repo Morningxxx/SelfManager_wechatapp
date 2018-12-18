@@ -1,15 +1,18 @@
-const envName = 'dev'
+const envName = 'prod'
 
 const configs = {
   dev: {
     baseUrl: "http://127.0.0.1:5000"
   },
   test: {
-    baseUrl: "http://sm-tst.spechles.com"
+    baseUrl: "http://sm-tst.write4self.com"
   },
   prod: {
-    baseUrl: "http://sm.spechles.com"
+    baseUrl: "http://sm.write4self.com"
   }
 }
 
-module.exports = configs[envName]
+const config = configs[envName]
+config.envName = envName
+
+module.exports = config

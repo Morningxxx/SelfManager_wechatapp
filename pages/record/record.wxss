@@ -26,3 +26,14 @@
   margin-right: auto;
   text-align: center; 
 }
+
+.cellprice[data-attr="dec"] {
+  color: rgb(241, 81, 81);
+  margin-top: 14pt;
+}
+
+.cellprice[data-attr="inc"] {
+  color: rgb(141, 226, 119);
+  margin-top: 14pt;
+}
+
