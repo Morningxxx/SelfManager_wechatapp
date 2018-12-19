@@ -17,5 +17,5 @@
     <view class='formtitle'>备注</view>
     <input class='formcontent' bindconfirm='noteDone' bindblur='noteDone' placeholder='请输入备注'></input>
   </view>
-  <button class='formsubmit' bindtap='createWish'>新建心愿</button>
+  <button class='formsubmit' bindtap='createWish' disabled='{{!newable}}'>新建心愿</button>
 </view>

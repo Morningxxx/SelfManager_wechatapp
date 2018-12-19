@@ -23,5 +23,5 @@
     </checkbox-group>
   </view>
 
-  <button class='formsubmit' bindtap='createGoal'>新建目标</button>
+  <button class='formsubmit' bindtap='createGoal' disabled='{{!newable}}'>新建目标</button>
 </view>

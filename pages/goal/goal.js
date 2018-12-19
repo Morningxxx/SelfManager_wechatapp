@@ -31,7 +31,7 @@ Page({
     wx.showModal({
       title: '确认完成',
       content: '您将获得' + goal.rewards + '积分.',
-      confirmColor: 'rgb(19, 34 ,122)',
+      confirmColor: '#13227a',
       success: (res) => {
         if (res.confirm) {
           console.log('confirmed')
@@ -49,6 +49,22 @@ Page({
             utils.clogin()
           })
         }
+      }
+    })
+  },
+  optionAction: function (event) {
+    console.log(event)
+    var goal = this.data.goals[event.target.dataset.id]
+    if(!goal) {
+      return
+    }
+    wx.showActionSheet({
+      itemList: ['删除'],
+      success: (res) => {
+        console.log(res)
+        if (res.tapIndex===0) {
+          this.doDelete(goal)
+        } 
       }
     })
   },
@@ -76,5 +92,8 @@ Page({
       (res) => { suc(res.data.goals) },
       (res) => { utils.clogin() }
     )
+  },
+  doDelete: function(goal) {
+    console.log(goal)
   }
 })

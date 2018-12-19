@@ -31,7 +31,7 @@ Page({
     wx.showModal({
       title: '确认兑换',
       content: '兑换“'+wish.title+'”将消耗您'+wish.costs+'积分.',
-      confirmColor: 'rgb(19, 34 ,122)',
+      confirmColor: '#13227a',
       success: (res) => {
         if(res.confirm) {
           console.log('confirmed')
@@ -49,6 +49,22 @@ Page({
             })
             }
           })
+        }
+      }
+    })
+  },
+  optionAction: function (event) {
+    console.log(event)
+    var wish = this.data.wishes[event.target.dataset.id]
+    if (!wish) {
+      return
+    }
+    wx.showActionSheet({
+      itemList: ['删除'],
+      success: (res) => {
+        console.log(res)
+        if (res.tapIndex === 0) {
+          this.doDelete(wish)
         }
       }
     })
@@ -77,5 +93,8 @@ Page({
       (res)=>{suc(res.data.wishes)},
       (res)=>{utils.clogin()}
     )
+  },
+  doDelete: function (wish) {
+    console.log(wish)
   }
 })

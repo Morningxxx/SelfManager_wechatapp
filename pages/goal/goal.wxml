@@ -1,11 +1,11 @@
 <view>
   <scroll-view class='listview' scroll-y='true'>
-    <view class='listviewcell' wx:for='{{goals}}'>
+    <view class='listviewcell' wx:for='{{goals}}' data-id='{{item.index}}' bindlongtap='optionAction'>
       <view class='celltitle cellitem cellleft'>{{item.title}}</view>
       <view class='cellstatus cellitem cellright'>{{item.statusName}}</view>
       <view class='cellprice cellitem cellright'>{{item.rewards}}积分</view>
       <view class='celltype cellitem cellleft'>{{item.typeName}}</view>
-      <button class='cellaction cellitem cellright' id='{{item.index}}' data-attr='{{item.status == 100 ? "unfinished":"finished"}}' bindtap='finishGoal'>{{item.status == 100? '完成': '已完成'}}</button>
+      <button class='cellaction cellitem cellright' id='{{item.index}}' data-attr='{{item.status == 100 ? "unfinished":"finished"}}' bindtap='finishGoal' disabled='{{item.status == 100 ? false:true}}'>{{item.status == 100? '完成': '已完成'}}</button>
     </view>
   </scroll-view>
 </view>

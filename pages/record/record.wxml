@@ -1,5 +1,5 @@
-<view>
-  <scroll-view class='listview' scroll-y='true'>
+<view style='height：100%'>
+  <scroll-view class='listview' scroll-y='true' lower-threshold='0' topper-threshold='0' bindscrolltoupper='refreshList' bindscrolltolower='loadListMore'>
     <view class='listviewcell' wx:for='{{records}}'>
       <view class='celltitle cellitem cellleft'>{{item.stitle}}</view>
       <view class='celltime cellitem cellright'>{{item.finishDate}}</view>

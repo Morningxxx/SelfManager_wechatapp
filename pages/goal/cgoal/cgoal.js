@@ -1,7 +1,6 @@
 
 const requests = require('../../../requests/requests.js')
 
-var dataLoaded = false
 var typeSelected = false
 var newGoal = {
   title: "",
@@ -49,6 +48,7 @@ Page({
     selectedStatus: false,
     canAutoDone: false,
     autoDone: false,
+    newable: false
   },
   data: {},
   selected: function(event) {
@@ -66,14 +66,15 @@ Page({
       dataToSet.canAutoDone = false
     }
     this.setData(dataToSet)
+    this.checkNewable()
   },
   titleDone: function(event) {
     newGoal.title = event.detail.value
+    this.checkNewable()
   },
   rewardsDone: function (event) {
-    console.log(event.detail.value)
     newGoal.rewards = parseInt(event.detail.value)
-    console.log(newGoal)
+    this.checkNewable()
   },
   noteDone: function (event) {
     newGoal.note = event.detail.value
@@ -93,7 +94,6 @@ Page({
     this.init()
   },
   init: function() {
-    dataLoaded = false
     typeSelected = false
     newGoal = {
       title: "",
@@ -101,5 +101,13 @@ Page({
       rewards: 0
     }
     this.setData(JSON.parse(JSON.stringify(this.initData))) 
+    console.log(this.data)
+  },
+  checkNewable: function() {
+    var newable = false
+    if (newGoal.title && newGoal.gtype > -1 && newGoal.rewards > 0) {
+      newable = true
+    }
+    this.setData({newable: newable})
   }
 })

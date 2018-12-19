@@ -175,6 +175,29 @@ const finishGoal = function(gid, suc, error) {
   
 }
 
+const deleteGoal = function(gid, suc, error) {
+  wx.request({
+    url: configs.baseUrl + '/api/my/goals/' + gid,
+    header: { 'Authorization': wx.getStorageSync('sessionKey') },
+    method: 'DELETE',
+    data: {
+      gid: gid,
+    },
+    success: function (res) {
+      res = res.data
+      if (res.success) {
+        if (suc) { suc(res) }
+      } else if (error) { error(res) }
+    },
+    fail: function (res) {
+      if (error) { error(res) }
+    },
+    complete: function (res) {
+      wx.hideLoading()
+    }
+  })
+}
+
 const getWishes = function (suc, error) {
   wx.request({
     url: configs.baseUrl + '/api/my/wishes',
@@ -265,9 +288,10 @@ const buyWish = function (wid, suc, error) {
   })
 
 }
-const getRecords = function (suc, error) {
+
+const getRecords = function (page, suc, error) {
   wx.request({
-    url: configs.baseUrl + '/api/my/records',
+    url: configs.baseUrl + '/api/my/records?page=' + page,
     header: { 'Authorization': wx.getStorageSync('sessionKey') },
     method: 'GET',
     success: function (res) {

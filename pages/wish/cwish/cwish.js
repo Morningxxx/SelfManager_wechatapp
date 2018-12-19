@@ -45,6 +45,7 @@ Page({
     ],
     selected: '请选择...',
     selectedStatus: false,
+    newable: false,
   },
   data: {},
   selected: function (event) {
@@ -57,19 +58,18 @@ Page({
       selectedStatus: true
     }
     this.setData(dataToSet)
-    console.log(newWish)
+    this.checkNewable()
   },
   titleDone: function (event) {
     newWish.title = event.detail.value
-    console.log(newWish)
+    this.checkNewable()
   },
   costsDone: function (event) {
     newWish.costs = parseInt(event.detail.value)
-    console.log(newWish)
+    this.checkNewable()
   },
   noteDone: function (event) {
     newWish.note = event.detail.value
-    console.log(newWish)
   },
   createWish: function () {
     console.log(newWish)
@@ -87,5 +87,12 @@ Page({
       costs: 0
     }
     this.setData(JSON.parse(JSON.stringify(this.initData)))
+  },
+  checkNewable: function() {
+    var newable = false
+    if (newWish.title && newWish.wtype > -1 && newWish.costs > 0) {
+      newable = true
+    }
+    this.setData({ newable: newable })
   }
 })
